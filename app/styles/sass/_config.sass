@@ -1,0 +1,108 @@
+// USER VARIABLES SECTION
+
+$accent: orange // Accent Color
+$fontsize: 16px // Body Font Size
+$textcolor: #333 // Text Color
+$lineheight: 1.65 // Document Line Height
+$userfont: roboto-oh5, sans-serif // User Font Family
+$systemfont: -apple-system, BlinkMacSystemFont, Arial, sans-serif // System Font Family
+
+// Bootstrap compatible gutter variable => $gutter
+$grid-gutter-width: 30px
+$gutter: $grid-gutter-width
+
+// IMPORT SECTION
+
+@import 'node_modules/bootstrap/scss/bootstrap-reboot.scss' // Bootstrap Reboot collection
+@import 'node_modules/bootstrap/scss/mixins/_breakpoints.scss' // Bootstrap Breakpoints mixin
+// @import 'node_modules/bootstrap/scss/bootstrap-grid.scss' // Optional Bootstrap Grid
+// @import 'node_modules/bootstrap/scss/utilities/_sizing.scss' // Optional Bootstrap Utilites
+
+// FONTS LOAD SECTION
+
+@mixin font($fname, $fstyle, $fweight, $furl)
+	@font-face
+		font-family: $fname
+		font-style: $fstyle
+		font-weight: $fweight
+		src: url($furl) format('woff2')
+
+@include font('roboto-oh5', normal, 400, '../fonts/roboto-regular-webfont.woff2')
+@include font('roboto-oh5', italic, 400, '../fonts/roboto-italic-webfont.woff2')
+@include font('roboto-oh5', normal, 700, '../fonts/roboto-bold-webfont.woff2')
+@include font('roboto-oh5', italic, 700, '../fonts/roboto-bolditalic-webfont.woff2')
+
+// GENERAL DOCUMENT STYLES
+
+::placeholder
+	color: #666
+
+::selection
+	background-color: $accent
+	color: #fff
+
+input, textarea
+	outline: none
+	&:focus:required:invalid
+		border-color: red
+	&:required:valid
+		border-color: green
+
+html, body
+	height: 100%
+
+body
+	font-family: $userfont
+	font-size: $fontsize
+	line-height: $lineheight
+	color: $textcolor
+	min-width: 320px
+	position: relative
+	overflow-x: hidden
+	//<Переменные =======================================================
+$minWidth: 320px
+$maxWidth: 1920
+$maxWidthContainer: 1050
+$md1: $maxWidthContainer + 12
+$md2: 991.98
+$md3: 767.98
+$md4: 479.98
+//</Переменные ==============================================
+//< Оболочка ====================================
+.wrapper
+	width: 100%
+	min-height: 100%
+	overflow: hidden
+	display: flex
+	flex-direction: column
+
+//</ Оболочка =========================================
+//< Основная сетка ====================================
+._container
+	max-width: $maxWidthContainer + px
+	margin: 0 auto
+	@media (max-width: $md1+px)
+		max-width: 970px
+
+	@media (max-width: $md2+px)
+		max-width: 750px
+
+	@media (max-width: $md3+px)
+		max-width: none
+
+//</ Основная сетка ==================================
+
+//< Основной блок ====================================
+.page
+	flex: 1 1 auto
+//</ Основной блок ==================================
+.footer
+	background-color: tomato
+		// .footer__content
+
+	&__content
+
+		// .footer__link
+
+	&__link
+		color: #fff
